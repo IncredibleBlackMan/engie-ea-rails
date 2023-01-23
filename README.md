@@ -1,24 +1,16 @@
-# README
+## ENGIE EA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+This application aims to offer partners with the ability to customise custom attributes to their models in an easy way.
 
-* Ruby version
+## Setup
 
-* System dependencies
+1. Clone this repository `git clone https://github.com/IncredibleBlackMan/engie-ea-rails.git`
+2. Run `bundle install` to install all required gems
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Approach
+1. Added `Battery` and `Customer` models
+2. Create `CustomDataSchema` model to hold the schema definition for the custom attributes being added.
+3. Create `CustomAttribute` model with a polymorphic relationship that would hold the custom data from any model.
+4. Add a `ModelAttributeExtension` module that defines getter and setter methods from the custom_data_schema. These methods would make it possible to do something like `email = Customer.first.email`, with email being an custom attribute.
